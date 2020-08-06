@@ -2,8 +2,14 @@ var canvas = document.getElementById('10print');
 var context = canvas.getContext('2d');
 
 
-canvas.width = 600;
-canvas.height = 500;
+if(window.innerWidth > 600) {
+	canvas.width = 600;
+	canvas.height = 500;
+}
+else {
+	canvas.width = 400;
+	canvas.height = 500;
+}
 
 var width = canvas.clientWidth;
 var height = canvas.clientHeight;
