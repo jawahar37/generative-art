@@ -6,22 +6,26 @@
         <title>Generative art</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/main.css">
-
     </head>
     <body>
         <header>
             <h1>Generative art</h1>
             <p>A gallery of art generated with code and rendered using HTML5 Canvas.<br>
             This project is inspired by the <a href="https://canvas-cards.glitch.me/">Canvas Cards</a> collection by <a href="https://twitter.com/friendofpixels">Luke Patton.</a></p>
-            
         </header>
         <div class="canvas-container _10print-container">
             <div class="about">
-                <h2>10 PRINT</h2>
-                <p>10 PRINT is a program written in the early 80s to run on a COMMODORE 64 system to generate a beautiful maze with a simple condition.<span class="code">10 PRINT CHR$ (205.5 + RND (1)); : GOTO 10</span>It prints either a \ or a / with a 50% probability for each.
-                </p>
+                <div class="description">
+                    <h2>10 PRINT</h2>
+                    <p>10 PRINT is a program written in the early 80s to run on a COMMODORE 64 system to generate a beautiful maze with a simple condition.<span class="code">10 PRINT CHR$ (205.5 + RND (1)); : GOTO 10</span>It prints either a \ or a / with a 50% probability for each.</p>
+                </div>
+                <div class="control">
+                    <label for="10print-step">Slash size: </label><input type="text" id="10print-step">
+                    <button id="10print-button" class="draw" onclick="_10print()">Draw</button>
+                </div>
             </div>
             <canvas id="10print"></canvas>
         </div>

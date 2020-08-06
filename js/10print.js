@@ -8,18 +8,36 @@ canvas.height = 500;
 var width = canvas.clientWidth;
 var height = canvas.clientHeight;
 
-context.lineCap = 'square';
-context.lineWidth = 4;
-context.strokeStyle = "white";
 
 step = 20;
-for(var x = 0; x < width; x += step) {
-  for(var y = 0; y < height; y+= step) {
-    draw(x, y, step, step);    
-  }
+drawMaze(step, 4);
+
+function _10print() {
+	var stepInput = Number(document.getElementById("10print-step").value);
+	stepInput = (stepInput <= 10 || stepInput == NaN ) ? 10 : stepInput;
+	slashWidth = (stepInput >= 20) ? 4 : 1;
+
+	console.log("Drawing maze: " + stepInput);
+	drawMaze(stepInput, slashWidth);
 }
 
-function draw(x, y, width, height) {
+function drawMaze(step, slashWidth) {
+	context.fillStyle = "#2B4570";
+  	context.fillRect(0, 0, width, height);
+
+  	context.lineCap = "square";
+	context.lineWidth = slashWidth;
+	context.strokeStyle = "white";
+
+	context.beginPath();
+	for(var x = 0; x < width; x += step) {
+	  for(var y = 0; y < height; y+= step) {
+	    drawSlash(x, y, step, step);    
+	  }
+	}
+}
+
+function drawSlash(x, y, width, height) {
   var leftToRight = probability(0.5);
 
   if(leftToRight) {

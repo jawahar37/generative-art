@@ -6,27 +6,59 @@
     font-family: Courier New, Courier;
 }
 
-
 .canvas-container {
-    padding: 0 10%;
     min-height: 500px;
-
+    padding: 0 15px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
 .canvas-container .about {
-    min-height: 500px;
-    flex: 0 0 500px;
+    flex: 1;
     padding: 15px 30px;
-
     font-size: 1.2em;
+    align-self: flex-start;
+    margin-bottom: 15px;
+}
+
+.canvas-container .about h2{
+    margin: 0 0 10px 0;
 }
 
 .canvas-container canvas {
-    min-height: 500px;
+    flex: 0 1 500px;
+}
+
+@media screen and (min-width: 992px) {
+    .canvas-container {
+        flex-direction: row;
+        justify-content: center;       
+    }
+    .canvas-container .about {
+        margin: 0;
+    }
+
+}
+@media screen and (min-width: 1200px) {
+    .canvas-container {
+        padding: 0 10%;
+    }
+}
+
+input[type="text" i] {
+    padding: .375rem .75rem;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+button {
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
 }
 
 span.code {
@@ -46,6 +78,8 @@ header h1 {
     text-transform: uppercase;
     font-size: 2.5em;
     margin-top: 0;
+    font-weight: 700;
+    font-style: italic;
 }
 
 header a {
@@ -53,7 +87,7 @@ header a {
 }
 
 header p {
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 body {
@@ -61,7 +95,7 @@ body {
     background-color: #001427;
     color: white;
 
-    font-family: Helvetica, Arial;
+    font-family: 'Roboto', sans-serif, Helvetica, Arial;
 }
 
 div {
