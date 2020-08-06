@@ -1,6 +1,72 @@
+._10print-container {
+    background-color: #2B4570;
+}
+
+._10print-container h2 {
+    font-family: Courier New, Courier;
+}
 
 
-/*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
+.canvas-container {
+    padding: 0 10%;
+    min-height: 500px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.canvas-container .about {
+    min-height: 500px;
+    flex: 0 0 500px;
+    padding: 15px 30px;
+
+    font-size: 1.2em;
+}
+
+.canvas-container canvas {
+    min-height: 500px;
+}
+
+span.code {
+    font-family: Courier New, Courier;
+    font-weight: bold;
+    display: block;
+}
+
+header {
+    height: 300px;
+    box-sizing: border-box;
+    margin-top: 3em;
+    padding: 0 10%;
+}
+
+header h1 {
+    text-transform: uppercase;
+    font-size: 2.5em;
+    margin-top: 0;
+}
+
+header a {
+    color: #FAA916;
+}
+
+header p {
+    font-size: 1.5em;
+}
+
+body {
+    margin: 0px;
+    background-color: #001427;
+    color: white;
+
+    font-family: Helvetica, Arial;
+}
+
+div {
+    box-sizing: border-box;
+}
 
 html {
     color: #222;
