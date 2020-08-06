@@ -3,17 +3,21 @@ var context = canvas.getContext('2d');
 
 
 if(window.innerWidth > 600) {
-	canvas.width = 600;
-	canvas.height = 500;
+	var width = 600;
+	var height = 500;
 }
 else {
-	canvas.width = 400;
-	canvas.height = 500;
+	var width = 400;
+	var height = 500;
 }
 
-var width = canvas.clientWidth;
-var height = canvas.clientHeight;
+canvas.style.width = width + "px";
+canvas.style.height = height + "px";
 
+var pixelScale = Math.floor(window.devicePixelRatio);
+canvas.width = width * pixelScale;
+canvas.height = height * pixelScale;
+context.scale(pixelScale, pixelScale)
 
 step = 20;
 drawMaze(step, 4);
