@@ -19,8 +19,8 @@ canvas.width = width * pixelScale;
 canvas.height = height * pixelScale;
 ctx.scale(pixelScale, pixelScale)
 
-document.getElementById("spiro-radius").value = 0.66;
-document.getElementById("spiro-rotation").value = 3;
+document.getElementById("spiro-radius").value = 0.667;
+document.getElementById("spiro-loops").value = 4;
 spiro();
 
 function spiro() {
@@ -28,11 +28,11 @@ function spiro() {
   	ctx.fillRect(0, 0, width, height);
   	ctx.lineWidth = 5;
 
-  	let totalRadius = 200;
+  	let totalRadius = width * 3/8;
   	let radiusRatio = document.getElementById("spiro-radius").value;
 	let innerRadius = Math.floor(totalRadius * radiusRatio), outerRadius = Math.floor(totalRadius * (1 - radiusRatio));
 	
-  	let rotationRatio = document.getElementById("spiro-rotation").value;
+  	let rotationRatio = document.getElementById("spiro-loops").value;
 	
 	drawSpiro(width/2, height/2, innerRadius, outerRadius, 1.0/rotationRatio, rotationRatio);
 }
