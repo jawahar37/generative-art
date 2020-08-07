@@ -21,20 +21,22 @@ ctx.scale(pixelScale, pixelScale)
 
 document.getElementById("spiro-radius").value = 0.667;
 document.getElementById("spiro-loops").value = 4;
+var phase = 0;
 spiro();
 
 function spiro() {
 	ctx.fillStyle = "#ffffff";
   	ctx.fillRect(0, 0, width, height);
-  	ctx.lineWidth = 5;
+  	ctx.lineWidth = 7;
 
   	let totalRadius = width * 3/8;
   	let radiusRatio = document.getElementById("spiro-radius").value;
-	let innerRadius = Math.floor(totalRadius * radiusRatio), outerRadius = Math.floor(totalRadius * (1 - radiusRatio));
+	let innerRadius = totalRadius * radiusRatio, outerRadius = totalRadius * (1 - radiusRatio);
 	
   	let rotationRatio = document.getElementById("spiro-loops").value;
 	
 	drawSpiro(width/2, height/2, innerRadius, outerRadius, 1.0/rotationRatio, rotationRatio);
+	phase += 0.04;
 }
 
 function drawSpiro(centerX, centerY, innerRadius, outerRadius, ratio, loops) {
@@ -52,7 +54,7 @@ function drawSpiro(centerX, centerY, innerRadius, outerRadius, ratio, loops) {
 	        innerRadius * Math.sin(theta) +
 	        outerRadius * Math.sin(theta * ratio);
 	    
-	    let color = "hsl(" + Math.floor(theta * 360 / (2 * Math.PI)) + ", 100%, 50%)";
+	    let color = "hsl(" + Math.floor((theta + phase) * 360 / (2 * Math.PI)) + ", 100%, 50%)";
 
 	    drawLine(lastX, lastY, x, y, color);
 	    lastX = x;
