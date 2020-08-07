@@ -32,7 +32,7 @@ function _10print() {
 }
 
 function drawMaze(step, slashWidth) {
-	context.fillStyle = "#2B4570";
+	context.fillStyle = "#e9c46a";
   	context.fillRect(0, 0, width, height);
 
   	context.lineCap = "square";

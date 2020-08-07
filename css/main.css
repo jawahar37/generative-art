@@ -1,5 +1,9 @@
+.spiro-container {
+    background-color: #f4a261;
+}
+
 ._10print-container {
-    background-color: #2B4570;
+    background-color: #e9c46a;
 }
 
 ._10print-container h2 {
@@ -89,8 +93,8 @@ header p {
 
 body {
     margin: 0px;
-    background-color: #001427;
     color: white;
+    background-color: #2a9d8f;
 
     font-family: 'Roboto', sans-serif, Helvetica, Arial;
 }
