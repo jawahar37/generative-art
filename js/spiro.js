@@ -25,7 +25,8 @@ var phase = 0;
 spiro();
 
 function spiro() {
-	ctx.fillStyle = "#ffffff";
+	ctx.clearRect(0, 0, width, height);
+	ctx.fillStyle = "#4C5454";
   	ctx.fillRect(0, 0, width, height);
   	ctx.lineWidth = 7;
 
