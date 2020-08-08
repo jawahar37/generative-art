@@ -23,11 +23,12 @@ step = 20;
 drawMaze(step, 4);
 
 function _10print() {
+  	context.clearRect(0, 0, width, height);
+	
 	var stepInput = Number(document.getElementById("10print-step").value);
 	stepInput = (stepInput <= 10 || stepInput == NaN ) ? 10 : stepInput;
 	slashWidth = (stepInput >= 20) ? 4 : 1;
 
-	console.log("Drawing maze: " + stepInput);
 	drawMaze(stepInput, slashWidth);
 }
 

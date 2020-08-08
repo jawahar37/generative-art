@@ -37,23 +37,23 @@ function spiro() {
   	let rotationRatio = document.getElementById("spiro-loops").value;
 	
 	drawSpiro(width/2, height/2, innerRadius, outerRadius, 1.0/rotationRatio, rotationRatio);
-	phase += 0.04;
+	phase += 0.01;
 }
 
 function drawSpiro(centerX, centerY, innerRadius, outerRadius, ratio, loops) {
 
-	let lastX = centerX + innerRadius + outerRadius;
-	let lastY = centerY;
+	let lastX = centerX + innerRadius + outerRadius * Math.cos(phase);
+	let lastY = centerY + outerRadius * Math.sin(phase);
 
 	for (let theta = 0; theta < (loops * 2 * Math.PI) + 0.01; theta += 0.01) {
 		let x =
 	        centerX +
 	        innerRadius * Math.cos(theta) +
-	        outerRadius * Math.cos(theta * ratio);
+	        outerRadius * Math.cos(theta * ratio + phase);
 	    let y =
 	        centerY +
 	        innerRadius * Math.sin(theta) +
-	        outerRadius * Math.sin(theta * ratio);
+	        outerRadius * Math.sin(theta * ratio + phase);
 	    
 	    let color = "hsl(" + Math.floor((theta + phase) * 360 / (2 * Math.PI)) + ", 100%, 50%)";
 
