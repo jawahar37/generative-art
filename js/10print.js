@@ -28,9 +28,6 @@ function _10print() {
 }
 
 function drawMaze(step, slashWidth) {
-	context.fillStyle = "#EF8354";
-	context.fillRect(0, 0, width, height);
-
 	context.lineCap = "square";
 	context.lineWidth = slashWidth;
 	context.strokeStyle = "white";
@@ -41,6 +38,7 @@ function drawMaze(step, slashWidth) {
 			drawSlash(x, y, step, step);    
 		}
 	}
+	context.stroke();
 }
 
 function drawSlash(x, y, width, height) {
@@ -53,7 +51,6 @@ function drawSlash(x, y, width, height) {
 		context.moveTo(x + width, y);
 		context.lineTo(x, y + height);
 	}
-	context.stroke();
 }
 
 function probability(probability) {
