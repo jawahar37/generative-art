@@ -1,9 +1,9 @@
 .spiro-container {
-    background-color: #4C5454;
+    --mainColor: #4C5454;
 }
 
 ._10print-container {
-    background-color: #EF8354;
+    --mainColor: #EF8354;
 }
 
 ._10print-container h2 {
@@ -11,11 +11,14 @@
 }
 
 .canvas-container {
+    --textColor: white;
     min-height: 500px;
     padding: 0 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: var(--mainColor);
+    color: var(--textColor);
 }
 
 .canvas-container .about {
@@ -46,6 +49,11 @@
     }
 }
 
+:root {
+    --mainColor: black;
+    --textColor: white;
+}
+
 input[type="text" i] {
     padding: .375rem .75rem;
     border: 1px solid #ced4da;
@@ -61,6 +69,15 @@ button {
     font-family: 'Roboto', sans-serif;
     background: transparent;
     color: inherit;
+}
+
+button:active {
+    color: var(--mainColor);
+    background-color: var(--textColor);
+}
+
+button:focus {
+    outline: none;
 }
 
 span.code {

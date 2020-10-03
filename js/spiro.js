@@ -26,15 +26,13 @@ spiro();
 
 function spiro() {
 	ctx.clearRect(0, 0, width, height);
-	ctx.fillStyle = "#4C5454";
-  	ctx.fillRect(0, 0, width, height);
-  	ctx.lineWidth = 7;
+	ctx.lineWidth = 7;
 
-  	let totalRadius = width * 3/8;
-  	let radiusRatio = document.getElementById("spiro-radius").value;
+	let totalRadius = width * 3/8;
+	let radiusRatio = document.getElementById("spiro-radius").value;
 	let innerRadius = totalRadius * radiusRatio, outerRadius = totalRadius * (1 - radiusRatio);
 	
-  	let rotationRatio = document.getElementById("spiro-loops").value;
+	let rotationRatio = document.getElementById("spiro-loops").value;
 	
 	drawSpiro(width/2, height/2, innerRadius, outerRadius, 1.0/rotationRatio, rotationRatio);
 	phase += 0.01;
@@ -47,19 +45,19 @@ function drawSpiro(centerX, centerY, innerRadius, outerRadius, ratio, loops) {
 
 	for (let theta = 0; theta < (loops * 2 * Math.PI) + 0.01; theta += 0.01) {
 		let x =
-	        centerX +
-	        innerRadius * Math.cos(theta) +
-	        outerRadius * Math.cos(theta * ratio + phase);
-	    let y =
-	        centerY +
-	        innerRadius * Math.sin(theta) +
-	        outerRadius * Math.sin(theta * ratio + phase);
-	    
-	    let color = "hsl(" + Math.floor((theta - phase) * 360 / (2 * Math.PI)) + ", 100%, 50%)";
+			centerX +
+			innerRadius * Math.cos(theta) +
+			outerRadius * Math.cos(theta * ratio + phase);
+		let y =
+			centerY +
+			innerRadius * Math.sin(theta) +
+			outerRadius * Math.sin(theta * ratio + phase);
+		
+		let color = "hsl(" + Math.floor((theta - phase) * 360 / (2 * Math.PI)) + ", 100%, 50%)";
 
-	    drawLine(lastX, lastY, x, y, color);
-	    lastX = x;
-	    lastY = y;
+		drawLine(lastX, lastY, x, y, color);
+		lastX = x;
+		lastY = y;
 	}
 }
 
