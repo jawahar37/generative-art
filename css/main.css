@@ -54,12 +54,13 @@ input[type="text" i] {
 }
 
 button {
-    border: 1px solid transparent;
+    border: 2px solid white;
     padding: .375rem .75rem;
     border-radius: .25rem;
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
-    background-color: white;
+    background: transparent;
+    color: inherit;
 }
 
 span.code {

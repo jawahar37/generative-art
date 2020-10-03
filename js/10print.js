@@ -19,46 +19,41 @@ canvas.width = width * pixelScale;
 canvas.height = height * pixelScale;
 context.scale(pixelScale, pixelScale)
 
-step = 20;
-drawMaze(step, 4);
+
+_10print();
 
 function _10print() {
-  	context.clearRect(0, 0, width, height);
-	
-	var stepInput = Number(document.getElementById("10print-step").value);
-	stepInput = (stepInput <= 10 || stepInput == NaN ) ? 10 : stepInput;
-	slashWidth = (stepInput >= 20) ? 4 : 1;
-
-	drawMaze(stepInput, slashWidth);
+	context.clearRect(0, 0, width, height);
+	drawMaze(25, 4);
 }
 
 function drawMaze(step, slashWidth) {
 	context.fillStyle = "#EF8354";
-  	context.fillRect(0, 0, width, height);
+	context.fillRect(0, 0, width, height);
 
-  	context.lineCap = "square";
+	context.lineCap = "square";
 	context.lineWidth = slashWidth;
 	context.strokeStyle = "white";
 
 	context.beginPath();
 	for(var x = 0; x < width; x += step) {
-	  for(var y = 0; y < height; y+= step) {
-	    drawSlash(x, y, step, step);    
-	  }
+		for(var y = 0; y < height; y+= step) {
+			drawSlash(x, y, step, step);    
+		}
 	}
 }
 
 function drawSlash(x, y, width, height) {
-  var leftToRight = probability(0.5);
+	var leftToRight = probability(0.5);
 
-  if(leftToRight) {
-    context.moveTo(x, y);
-    context.lineTo(x + width, y + height);    
-  } else {
-    context.moveTo(x + width, y);
-    context.lineTo(x, y + height);
-  }
-  context.stroke();
+	if(leftToRight) {
+		context.moveTo(x, y);
+		context.lineTo(x + width, y + height);    
+	} else {
+		context.moveTo(x + width, y);
+		context.lineTo(x, y + height);
+	}
+	context.stroke();
 }
 
 function probability(probability) {

@@ -23,8 +23,7 @@
                     <p>10 PRINT is a program written in the early 80s to run on a COMMODORE 64 system to generate a beautiful maze with a simple condition.<span class="code">10 PRINT CHR$ (205.5 + RND (1)); : GOTO 10</span>It prints either a \ or a / with a 50% probability for each.</p>
                 </div>
                 <div class="control">
-                    <label for="10print-step">Slash size: </label><input type="text" id="10print-step">
-                    <button id="10print-button" class="draw" onclick="_10print()">Draw</button>
+                    <button id="10print-button" onclick="_10print()">Redraw</button>
                 </div>
             </div>
             <canvas id="10print"></canvas>
@@ -40,7 +39,7 @@
                     <input type="range" id="spiro-radius" oninput="spiro()" min="0" max="1" step="0.01">
                     <br>
                     <label for="spiro-loops">Loops: </label>
-                    <input type="range" id="spiro-loops" oninput="spiro()" min="1" max="20" step="1">
+                    <input type="range" id="spiro-loops" oninput="spiro()" min="1" max="18" step="1">
                 </div>
             </div>
             <canvas id="spiro"></canvas>

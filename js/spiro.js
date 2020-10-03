@@ -55,7 +55,7 @@ function drawSpiro(centerX, centerY, innerRadius, outerRadius, ratio, loops) {
 	        innerRadius * Math.sin(theta) +
 	        outerRadius * Math.sin(theta * ratio + phase);
 	    
-	    let color = "hsl(" + Math.floor((theta + phase) * 360 / (2 * Math.PI)) + ", 100%, 50%)";
+	    let color = "hsl(" + Math.floor((theta - phase) * 360 / (2 * Math.PI)) + ", 100%, 50%)";
 
 	    drawLine(lastX, lastY, x, y, color);
 	    lastX = x;
