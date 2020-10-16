@@ -21,8 +21,8 @@ squareBloom = function() {
 	ctx.scale(pixelScale, pixelScale)
 
 	//parameters
-	var borderWidth = 5,
-	padding = 10,
+	var borderWidth = width<600? 3 : 5,
+	padding = width<600? 6 : 10,
 	count = 150,
 	threshold = 8;
 	maximumAttempts = 300;
