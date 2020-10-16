@@ -23,9 +23,9 @@ sqaureBloom = function() {
 	//parameters
 	var borderWidth = 4,
 	padding = 10,
-	count = 200,
-	threshold = 10;
-	maximumAttempts = 200;
+	count = 150,
+	threshold = 8;
+	maximumAttempts = 300;
 
 	function Square(x, y, size) {
 		this.x = x;
@@ -50,7 +50,7 @@ sqaureBloom = function() {
 
 		squares.push(new Square(rangeFloor(0, width), rangeFloor(0, height), rangeFloor(20, 60)));
 
-		while(true) {
+		while(squares.length < count) {
 			var square = attemptNewSquare(maximumAttempts);
 			if(square == null)
 				break;
@@ -75,7 +75,7 @@ sqaureBloom = function() {
 		if(size > threshold) {
 			return new Square(x, y, size);
 		}
-		else if(attempts-- == 0) {
+		else if(attempts-- <= 0) {
 			return null;
 		}
 		else
