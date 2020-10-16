@@ -44,7 +44,6 @@ squareBloom = function() {
 		ctx.rect(this.x - this.size, this.y - this.size, this.size * 2, this.size * 2)
 	}
 
-	var squares = [];
 	draw();
 
 	function draw() {
@@ -53,7 +52,7 @@ squareBloom = function() {
 		squares = [];
 		squares.push(new Square(rangeFloor(0, width), rangeFloor(0, height), rangeFloor(20, 60)));
 
-		while(squares.length < count) {
+		while(squares.length < count) {	//generate new squares
 			var square = attemptNewSquare(maximumAttempts);
 			if(square == null)
 				break;
@@ -76,10 +75,10 @@ squareBloom = function() {
 		var y = rangeFloor(0, height);
 		var size = getFeasibleSize(x, y);
 
-		if(size > threshold) {
+		if(size > threshold) {	//filters squares that are too small
 			return new Square(x, y, size);
 		}
-		else if(attempts-- <= 0) {
+		else if(attempts-- <= 0) {	//stop the process if a valid position for a new square can't be found even after many attempts.
 			return null;
 		}
 		else
@@ -87,11 +86,10 @@ squareBloom = function() {
 		
 	}
 
-	
-
 	function getFeasibleSize(x, y) {
-		var potentialSize = width;
-		squares.forEach(function(square) {
+		var potentialSize = width; //intialize potential size to the largest value it can take.
+
+		squares.forEach(function(square) {	//find the closest square
 			potentialSize = Math.min(square.manhattanEdgeDistance(x, y), potentialSize);
 		});
 		return potentialSize - padding;
