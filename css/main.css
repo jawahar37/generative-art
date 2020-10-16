@@ -1,3 +1,6 @@
+.square-bloom-container {
+    --mainColor: #000000;
+}
 .spiro-container {
     --mainColor: #4C5454;
 }
