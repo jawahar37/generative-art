@@ -1,4 +1,4 @@
-sqaureBloom = function() {
+squareBloom = function() {
 	var canvas = document.getElementById('square-bloom');
 	var ctx = canvas.getContext('2d');
 
@@ -21,11 +21,13 @@ sqaureBloom = function() {
 	ctx.scale(pixelScale, pixelScale)
 
 	//parameters
-	var borderWidth = 4,
+	var borderWidth = 5,
 	padding = 10,
 	count = 150,
 	threshold = 8;
 	maximumAttempts = 300;
+
+	var pallete = ["#ff595e","#ffca3a","#8ac926","#1982c4", "#6A4C93"];	
 
 	function Square(x, y, size) {
 		this.x = x;
@@ -48,6 +50,7 @@ sqaureBloom = function() {
 	function draw() {
 		ctx.clearRect(0, 0, width, height);
 
+		squares = [];
 		squares.push(new Square(rangeFloor(0, width), rangeFloor(0, height), rangeFloor(20, 60)));
 
 		while(squares.length < count) {
@@ -60,11 +63,12 @@ sqaureBloom = function() {
 
 		ctx.lineWidth = borderWidth;
 		ctx.strokeStyle = "white";
-		ctx.beginPath();
 		for (var i = 0; i < squares.length; i++) {
+			ctx.strokeStyle = pallete[rangeFloor(0, pallete.length)]
+			ctx.beginPath();
 			squares[i].drawPath();
+			ctx.stroke();
 		}
-		ctx.stroke();
 	}
 
 	function attemptNewSquare(attempts) {
