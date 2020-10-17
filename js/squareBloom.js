@@ -66,12 +66,12 @@ squareBloom = function() {
 	function draw() {
 		ctx.clearRect(0, 0, width, height);
 
-		padding = document.getElementById("square-bloom-padding").value;
-		threshold = document.getElementById("square-bloom-threshold").value;
-		ctx.lineWidth  = document.getElementById("square-bloom-border-width").value;
+		padding = parseInt(document.getElementById("square-bloom-padding").value);
+		threshold = parseInt(document.getElementById("square-bloom-threshold").value);
+		ctx.lineWidth  = parseInt(document.getElementById("square-bloom-border-width").value);
 
 		var root = new Square(width/2, height/2, (width + padding)/2);
-		// root.children.push(new Square(rangeFloor(0, width), rangeFloor(0, height), rangeFloor(20, 60)));
+
 		generateSquares(root);
 		drawSquares(root);
 	}
