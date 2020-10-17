@@ -51,6 +51,15 @@
                     <p>Draw the biggest square you can at a random place that doesn't touch any existing squares. Repeat till it becomes hard to find a new spot.</p>
                 </div>
                 <div class="control">
+                    <label for="square-bloom-padding">Space between squares: </label>
+                    <input type="number" id="square-bloom-padding" min="0" max="500" step="1"><br>
+
+                    <label for="square-bloom-threshold">Minimum square size: </label>
+                    <input type="number" id="square-bloom-threshold" min="0" max="500" step="1"><br>
+
+                    <label for="square-bloom-border-width">Line width: </label>
+                    <input type="number" id="square-bloom-border-width" min="1" max="500" step="1"><br>
+                    
                     <button id="square-bloom-button" onclick="squareBloom.draw()">Redraw</button>
                 </div>
             </div>

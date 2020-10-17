@@ -23,14 +23,21 @@ squareBloom = function() {
 
 
 	//parameters
-	var borderWidth = 1,
-	padding = 3,
+	var initialBorderWidth = 1,
+	initialPadding = 3,
+	initialThreshold = 2;
+
+	var padding = 3,
 	threshold = 2,
 	count = 10000,
 	maximumAttempts = 100;
 
+	document.getElementById("square-bloom-padding").value = initialPadding;
+	document.getElementById("square-bloom-threshold").value = initialThreshold;
+	document.getElementById("square-bloom-border-width").value = initialBorderWidth;
+
+
 	var pallete = ["#ff595e","#ffca3a","#8ac926","#1982c4", "#6A4C93"];	
-	ctx.lineWidth = borderWidth;
 
 	function Square(x, y, size) {
 		this.x = x;
@@ -59,6 +66,10 @@ squareBloom = function() {
 	function draw() {
 		ctx.clearRect(0, 0, width, height);
 
+		padding = document.getElementById("square-bloom-padding").value;
+		threshold = document.getElementById("square-bloom-threshold").value;
+		ctx.lineWidth  = document.getElementById("square-bloom-border-width").value;
+
 		var root = new Square(width/2, height/2, (width + padding)/2);
 		// root.children.push(new Square(rangeFloor(0, width), rangeFloor(0, height), rangeFloor(20, 60)));
 		generateSquares(root);
@@ -67,7 +78,7 @@ squareBloom = function() {
 
 	function generateSquares(root) {
 		var squaresGenerated = 0;
-		var fails = 0;
+
 		while(squaresGenerated < count) {	//generate new squares till either enough squares are drawn are till attempts expire
 			var attemptsLeft = maximumAttempts;
 		
@@ -84,7 +95,6 @@ squareBloom = function() {
 					break;
 				}
 			}
-			fails += maximumAttempts - attemptsLeft;
 			if(attemptsLeft <= 0)	//halt generation of squares if attempts run out
 				break;
 		}
