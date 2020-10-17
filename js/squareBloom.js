@@ -98,7 +98,6 @@ squareBloom = function() {
 			if(attemptsLeft <= 0)	//halt generation of squares if attempts run out
 				break;
 		}
-		console.log(squaresGenerated, fails);
 	}
 
 	function getEnclosingSquare(x, y, root) {
