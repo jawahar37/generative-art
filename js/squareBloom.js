@@ -37,7 +37,24 @@ squareBloom = function() {
 	document.getElementById("square-bloom-border-width").value = initialBorderWidth;
 
 
-	var pallete = ["#ff595e","#ffca3a","#8ac926","#1982c4", "#6A4C93"];	
+	var pallete = ["#ff595e","#ffca3a","#8ac926","#1982c4", "#6A4C93"];
+	var presets = {
+		"small": {
+			"padding": 2,
+			"threshold": 1,
+			"borderWidth": 1
+		},
+		"medium": {
+			"padding": 4,
+			"threshold": 4,
+			"borderWidth": 2
+		},
+		"large": {
+			"padding": 10,
+			"threshold": 8,
+			"borderWidth": 5
+		}
+	};
 
 	function Square(x, y, size) {
 		this.x = x;
@@ -57,8 +74,16 @@ squareBloom = function() {
 	Square.prototype.draw = function() {
 		ctx.strokeStyle = pallete[rangeFloor(0, pallete.length)]
 		ctx.beginPath();
-		ctx.rect(this.x - this.size, this.y - this.size, this.size * 2, this.size * 2)
+		ctx.rect(this.x - this.size, this.y - this.size, this.size * 2, this.size * 2);
 		ctx.stroke();
+	}
+
+	function drawPreset(presetName) {
+		var preset = presets[presetName];
+		document.getElementById("square-bloom-padding").value = preset["padding"];
+		document.getElementById("square-bloom-threshold").value = preset["threshold"];
+		document.getElementById("square-bloom-border-width").value = preset["borderWidth"];
+		draw();
 	}
 
 	draw();
@@ -135,6 +160,7 @@ squareBloom = function() {
 	}
 
 	return  {
-		draw:draw
+		draw:draw,
+		drawPreset:drawPreset
 	}
 }();
