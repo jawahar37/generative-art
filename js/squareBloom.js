@@ -21,20 +21,10 @@ squareBloom = function() {
 	ctx.scale(pixelScale, pixelScale)
 
 
-
-	//parameters
-	var initialBorderWidth = 1,
-	initialPadding = 3,
-	initialThreshold = 2;
-
 	var padding = 3,
 	threshold = 2,
 	count = 10000,
 	maximumAttempts = 100;
-
-	document.getElementById("square-bloom-padding").value = initialPadding;
-	document.getElementById("square-bloom-threshold").value = initialThreshold;
-	document.getElementById("square-bloom-border-width").value = initialBorderWidth;
 
 
 	var pallete = ["#ff595e","#ffca3a","#8ac926","#1982c4", "#6A4C93"];
@@ -86,7 +76,7 @@ squareBloom = function() {
 		draw();
 	}
 
-	draw();
+	drawPreset("medium");
 
 	function draw() {
 		ctx.clearRect(0, 0, width, height);
