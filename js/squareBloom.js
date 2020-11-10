@@ -22,8 +22,8 @@ squareBloom = function() {
 			"borderWidth": 2
 		},
 		"large": {
-			"padding": 10,
-			"threshold": 8,
+			"padding": 9,
+			"threshold": 6,
 			"borderWidth": 5
 		}
 	};
