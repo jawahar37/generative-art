@@ -18,7 +18,7 @@ squareBloom = function() {
 		},
 		"medium": {
 			"padding": 4,
-			"threshold": 4,
+			"threshold": 2,
 			"borderWidth": 2
 		},
 		"large": {
