@@ -32,6 +32,10 @@
     margin-bottom: 15px;
 }
 
+.accent {
+    color: var(--accentColor);
+}
+
 .canvas-container .about h2{
     margin: 0 0 10px 0;
 }
@@ -55,6 +59,7 @@
 :root {
     --mainColor: black;
     --textColor: white;
+    --accentColor: #FAA916;
 }
 
 input[type="text" i] {
