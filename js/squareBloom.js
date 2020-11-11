@@ -18,12 +18,12 @@ squareBloom = function() {
 		},
 		"medium": {
 			"padding": 4,
-			"threshold": 4,
+			"threshold": 2,
 			"borderWidth": 2
 		},
 		"large": {
-			"padding": 10,
-			"threshold": 8,
+			"padding": 9,
+			"threshold": 6,
 			"borderWidth": 5
 		}
 	};
