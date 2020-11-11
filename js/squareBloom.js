@@ -132,7 +132,7 @@ squareBloom = function() {
 	}
 
 	return  {
-		draw:draw,
-		drawPreset:drawPreset
+		draw,
+		drawPreset
 	}
 }();

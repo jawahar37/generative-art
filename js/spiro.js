@@ -53,6 +53,6 @@ spiro = function() {
 	}
 
 	return  {
-		draw:draw
+		draw
 	}
 }();

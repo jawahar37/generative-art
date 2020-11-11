@@ -1,8 +1,6 @@
 _10print = function() {
 	var canvas = document.getElementById('10print');
 	var {ctx, width, height} = canvasUtil.getScaled2dContext(canvas);
-	
-
 
 	draw();
 
@@ -44,6 +42,6 @@ _10print = function() {
 	}
 
 	return  {
-		draw:draw
+		draw
 	}
 }();
