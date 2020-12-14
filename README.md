@@ -3,7 +3,7 @@
 Code allows us draw in ways that aren't possible in other mediums. It allows us to create images from simple rules that deliver beautiful results.
 Code can compute and draw many elements consistently, incorporate randomness, and allow interaction; aspects hard to achieve through other mediums.
 
-Check out https://jawahar42.github.io/generative-art for play around with these projects live.
+Check out https://jawahar42.github.io/generative-art to play around with these projects live.
 
 ## 10 PRINT
 10 PRINT is a program written in the early 80s to run on a COMMODORE 64 system to generate a beautiful maze with a simple condition. ```10 PRINT CHR$ (205.5 + RND (1)); : GOTO 10```
