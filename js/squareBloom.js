@@ -35,12 +35,12 @@ squareBloom = function() {
 		this.children = [];
 	}
 
-	Square.prototype.getManhattanCenterDistance = function(x, y) {
+	Square.prototype.getChebyshevCenterDistance = function(x, y) {
 		return Math.max(Math.abs(this.x - x), Math.abs(this.y - y));
 	}
 
 	Square.prototype.isPointEnclosed = function(x, y) {
-		return this.getManhattanCenterDistance(x, y) <= this.size;
+		return this.getChebyshevCenterDistance(x, y) <= this.size;
 	}
 
 	Square.prototype.draw = function() {
@@ -113,10 +113,10 @@ squareBloom = function() {
 	function getFeasibleSize(x, y, root) {
 		var potentialSize = root.size; //intialize potential size to the largest value it can take.
 
-			potentialSize = Math.min(root.size - root.getManhattanCenterDistance(x, y), potentialSize);
+			potentialSize = Math.min(root.size - root.getChebyshevCenterDistance(x, y), potentialSize);
 
 			root.children.forEach(function(square) {	//find the closest square
-				potentialSize = Math.min(square.getManhattanCenterDistance(x, y) - square.size, potentialSize);
+				potentialSize = Math.min(square.getChebyshevCenterDistance(x, y) - square.size, potentialSize);
 			});
 		return potentialSize - padding;
 	}
