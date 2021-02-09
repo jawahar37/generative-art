@@ -54,5 +54,5 @@ spiro = function() {
 
 	return  {
 		draw
-	}
+	};
 }();

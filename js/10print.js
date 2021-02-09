@@ -1,6 +1,6 @@
 _10print = function() {
-	var canvas = document.getElementById('10print');
-	var {ctx, width, height} = canvasUtil.getScaled2dContext(canvas);
+	let canvas = document.getElementById('10print');
+	let {ctx, width, height} = canvasUtil.getScaled2dContext(canvas);
 
 	draw();
 
@@ -15,8 +15,8 @@ _10print = function() {
 		ctx.strokeStyle = "white";
 
 		ctx.beginPath();
-		for(var x = 0; x < width; x += step) {
-			for(var y = 0; y < height; y+= step) {
+		for(let x = 0; x < width; x += step) {
+			for(let y = 0; y < height; y+= step) {
 				drawSlash(x, y, step, step);    
 			}
 		}
@@ -24,7 +24,7 @@ _10print = function() {
 	}
 
 	function drawSlash(x, y, width, height) {
-		var leftToRight = probability(0.5);
+		let leftToRight = probability(0.5);
 
 		if(leftToRight) {
 			ctx.moveTo(x, y);
@@ -42,6 +42,6 @@ _10print = function() {
 	}
 
 	return  {
-		draw
-	}
+		draw,
+	};
 }();

@@ -1,16 +1,16 @@
 squareBloom = function() {
-	var canvas = document.getElementById('square-bloom');
-	var {ctx, width, height} = canvasUtil.getScaled2dContext(canvas);
+	let canvas = document.getElementById('square-bloom');
+	let {ctx, width, height} = canvasUtil.getScaled2dContext(canvas);
 
 
-	var padding = 3,
+	let padding = 3,
 	threshold = 2,
 	count = 10000,
 	maximumAttempts = 100;
 
 
-	var pallete = ["#ff595e","#ffca3a","#8ac926","#1982c4", "#6A4C93"];
-	var presets = {
+	let pallete = ["#ff595e","#ffca3a","#8ac926","#1982c4", "#6A4C93"];
+	let presets = {
 		"small": {
 			"padding": 2,
 			"threshold": 1,
@@ -25,7 +25,7 @@ squareBloom = function() {
 			"padding": 9,
 			"threshold": 6,
 			"borderWidth": 5
-		}
+		},
 	};
 
 	function Square(x, y, size) {
@@ -37,24 +37,24 @@ squareBloom = function() {
 
 	Square.prototype.getChebyshevCenterDistance = function(x, y) {
 		return Math.max(Math.abs(this.x - x), Math.abs(this.y - y));
-	}
+	};
 
 	Square.prototype.isPointEnclosed = function(x, y) {
 		return this.getChebyshevCenterDistance(x, y) <= this.size;
-	}
+	};
 
 	Square.prototype.draw = function() {
-		ctx.strokeStyle = pallete[rangeFloor(0, pallete.length)]
+		ctx.strokeStyle = pallete[rangeFloor(0, pallete.length)];
 		ctx.beginPath();
 		ctx.rect(this.x - this.size, this.y - this.size, this.size * 2, this.size * 2);
 		ctx.stroke();
-	}
+	};
 
 	function drawPreset(presetName) {
-		var preset = presets[presetName];
-		document.getElementById("square-bloom-padding").value = preset["padding"];
-		document.getElementById("square-bloom-threshold").value = preset["threshold"];
-		document.getElementById("square-bloom-border-width").value = preset["borderWidth"];
+		let preset = presets[presetName];
+		document.getElementById("square-bloom-padding").value = preset.padding;
+		document.getElementById("square-bloom-threshold").value = preset.threshold;
+		document.getElementById("square-bloom-border-width").value = preset.borderWidth;
 		draw();
 	}
 
@@ -67,26 +67,26 @@ squareBloom = function() {
 		threshold = parseInt(document.getElementById("square-bloom-threshold").value);
 		ctx.lineWidth  = parseInt(document.getElementById("square-bloom-border-width").value);
 
-		var root = new Square(width/2, height/2, (width + padding)/2);
+		let root = new Square(width/2, height/2, (width + padding)/2);
 
 		generateSquares(root);
 		drawSquares(root);
 	}
 
 	function generateSquares(root) {
-		var squaresGenerated = 0;
+		let squaresGenerated = 0;
 
 		while(squaresGenerated < count) {	//generate new squares till either enough squares are drawn are till attempts expire
-			var attemptsLeft = maximumAttempts;
+			let attemptsLeft = maximumAttempts;
 		
 			while(--attemptsLeft > 0) {
-				var x = rangeFloor(0, width);
-				var y = rangeFloor(0, height);
-				var enclosingRoot = getEnclosingSquare(x, y, root);
-				var size = getFeasibleSize(x, y, enclosingRoot);
+				let x = rangeFloor(0, width);
+				let y = rangeFloor(0, height);
+				let enclosingRoot = getEnclosingSquare(x, y, root);
+				let size = getFeasibleSize(x, y, enclosingRoot);
 
 				if(size > threshold) {	//filters squares that are too small
-					var square = new Square(x, y, size);
+					let square = new Square(x, y, size);
 					enclosingRoot.children.push(square);
 					squaresGenerated++;
 					break;
@@ -98,7 +98,7 @@ squareBloom = function() {
 	}
 
 	function getEnclosingSquare(x, y, root) {
-		var enclosingRoot = root;
+		let enclosingRoot = root;
 
 		if(root.children.length > 0) {
 			root.children.forEach(function(square) {
@@ -111,7 +111,7 @@ squareBloom = function() {
 	}
 
 	function getFeasibleSize(x, y, root) {
-		var potentialSize = root.size; //intialize potential size to the largest value it can take.
+		let potentialSize = root.size; //intialize potential size to the largest value it can take.
 
 			potentialSize = Math.min(root.size - root.getChebyshevCenterDistance(x, y), potentialSize);
 
@@ -134,5 +134,5 @@ squareBloom = function() {
 	return  {
 		draw,
 		drawPreset
-	}
+	};
 }();
