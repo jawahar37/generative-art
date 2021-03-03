@@ -1,8 +1,6 @@
 canvasUtil = (function() {
-	function getScaled2dContext(canvas) {
+	function get2dContext(canvas, width, height) {
 		var ctx = canvas.getContext('2d');
-
-		let [width, height] = window.innerWidth > 600 ? [600, 600] : [400, 400];
 
 		canvas.style.width = width + "px";
 		canvas.style.height = height + "px";
@@ -18,7 +16,14 @@ canvasUtil = (function() {
 			height,
 		};
 	}
+
+	function getScaled2dContext(canvas) {
+		let [width, height] = window.innerWidth > 600 ? [600, 600] : [400, 400];
+
+		return get2dContext(canvas, width, height);
+	}
 	return {
-		getScaled2dContext
+		getScaled2dContext,
+		get2dContext,
 	};
 }());
