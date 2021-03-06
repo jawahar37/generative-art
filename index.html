@@ -75,11 +75,25 @@
             </div>
             <canvas id="square-bloom"></canvas>
         </div>
+        <div class="number-circle-container canvas-container">
+            <div class="about">
+                <div class="description">
+                    <h2>Number circle</h2>
+                    <p>Get evenly spaced points on a circle. Draw lines between them. Go nuts!</p>
+                </div>
+                <div class="control">
+                    <label for="point-count">Points: </label>
+                    <input type="range" id="circle-point-count" min="2" max="18" step="1">
+                </div>
+            </div>
+            <canvas id="number-circle"></canvas>
+        </div>
 
         <!-- switch to bootstrap for a responsive layout -->
         <script src="js/canvasUtil.js"></script>
         <script src="js/10print.js"></script>
         <script src="js/spiro.js"></script>
         <script src="js/squareBloom.js"></script>
+        <script src="js/numberCircle.js"></script>
     </body>
 </html>

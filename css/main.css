@@ -1,3 +1,8 @@
+.number-circle-container {
+    --mainColor: #fffdf2;
+    --textColor: #000000;
+}
+
 .square-bloom-container {
     --mainColor: #0D1821;
 }
@@ -14,7 +19,6 @@
 }
 
 .canvas-container {
-    --textColor: white;
     min-height: 500px;
     padding: 0 15px;
     display: flex;
