@@ -1,5 +1,12 @@
 # generative-art
 
+--ARCHIVED--
+
+This project is archived in favor of the generative-drawings repository.
+- The new project is built to generate the site with Svelte instead of directly writing the static site.
+- The name generative-drawings fits the scope better.
+---
+
 Code allows us draw in ways that aren't possible in other mediums. It allows us to create images from simple rules that deliver beautiful results.
 Code can compute and draw many elements consistently, incorporate randomness, and allow interaction; aspects hard to achieve through other mediums.
 
